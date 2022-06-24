@@ -1,9 +1,10 @@
 package com.boleteriaapp.AppBoleteria.Service;
 
+import com.boleteriaapp.AppBoleteria.Entity.Asiento;
 import com.boleteriaapp.AppBoleteria.Entity.Estado;
 import com.boleteriaapp.AppBoleteria.Entity.Planta;
+import com.boleteriaapp.AppBoleteria.Repository.AsientoRepo;
 import com.boleteriaapp.AppBoleteria.Repository.EstadoRepo;
-import com.boleteriaapp.AppBoleteria.Repository.PlantaRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,35 +12,34 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 @Service
-public class PlantaService {
-
+public class AsientoService {
     @Autowired
-    private PlantaRepo plantaRepo;
+    private AsientoRepo asientoRepo;
 
-    public ArrayList<Planta> obtener(){
-        return (ArrayList<Planta> ) plantaRepo.findAll();
-    }
-
-    public Planta guardar(Planta plant){
-    	return plantaRepo.save(plant);
-    }
-    
-    public Planta actualizar(Planta plant) {
-    	return plantaRepo.save(plant);
+    public ArrayList<Asiento> obtener(){
+        return (ArrayList<Asiento> ) asientoRepo.findAll();
     }
 
-    public Optional<Planta> obtenerPorId(Long id) {
-        return plantaRepo.findById(id);
+    public Asiento guardar(Asiento asient){
+        return asientoRepo.save(asient);
     }
+
+    public Asiento actualizar(Asiento asient) {
+    	return asientoRepo.save(asient);
+    }
+
+    public Optional<Asiento> obtenerPorId(Long id) {
+        return asientoRepo.findById(id);
+    }
+
 
     public boolean eliminar(Long id){
         try{
-            plantaRepo.deleteById(id);
+            asientoRepo.deleteById(id);
             return true;
         }
         catch(Exception err){
             return false;
         }
     }
-
 }

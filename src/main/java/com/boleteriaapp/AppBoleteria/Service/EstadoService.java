@@ -21,12 +21,17 @@ public class EstadoService {
     public Estado guardar(Estado est){
         return estadoRepo.save(est);
     }
+    
+    public Estado actualizarEstado(Estado est) {
+    	return estadoRepo.save(est);
+    }
 
     public Optional<Estado> obtenerPorId(Long id) {
         return estadoRepo.findById(id);
     }
 
-    public boolean eliminar(Long id){
+    
+    /*public boolean eliminar(Long id){
         try{
             estadoRepo.deleteById(id);
             return true;
@@ -34,7 +39,7 @@ public class EstadoService {
         catch(Exception err){
             return false;
         }
-    }
+    }*/
 }
 
 /*@Service

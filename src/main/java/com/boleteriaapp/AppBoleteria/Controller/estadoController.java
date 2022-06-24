@@ -27,7 +27,7 @@ public class estadoController {
         return this.estadoService.guardar(est);
     }
 
-    @DeleteMapping(path ="/{id}")
+    /*@DeleteMapping(path ="/{id}")
     public String eliminarestado(@PathVariable("id") Long id){
         boolean ok = this.estadoService.eliminar(id);
         if(ok){
@@ -36,12 +36,19 @@ public class estadoController {
         else{
             return "El estado no fue eliminada correctamente ";
         }
-    }
+    }*/
 
     @GetMapping(path ="/{id}")
     public Optional<Estado> obtenerPorId(@PathVariable("id") Long id) {
         return this.estadoService.obtenerPorId(id);
     }
+    
+    @PutMapping()
+    public Estado actualizarEstado(@RequestBody Estado est) {
+    	return this.estadoService.guardar(est);
+    }
+    
+    
 }
 
 /*@RestController

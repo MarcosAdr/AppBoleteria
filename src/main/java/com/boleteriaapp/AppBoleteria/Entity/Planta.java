@@ -1,5 +1,7 @@
 package com.boleteriaapp.AppBoleteria.Entity;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,10 +15,15 @@ public class Planta {
 
     @Column
     private String nombreplanta;
+    
+    private int cantAsiento;
 
     @ManyToOne()
     @JoinColumn(name = "idestado" , referencedColumnName = "idestado")
     private Estado idestado;
+    
+    @OneToMany(mappedBy = "idplanta")
+    private List<Asiento> asiento;
 
     public long getIdplanta() {
         return idplanta;

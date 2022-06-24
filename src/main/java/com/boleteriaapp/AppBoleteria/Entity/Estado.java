@@ -17,6 +17,11 @@ public class Estado {
     @OneToMany(mappedBy = "idestado")
     private List<Planta> planta;
 
+    @OneToMany(mappedBy = "idestado")
+    private List<Asiento> asiento;
+
+    @OneToMany(mappedBy = "idestado")
+    private List<Evento> evento;
 
     public long getIdestado() {
         return idestado;

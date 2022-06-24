@@ -28,6 +28,11 @@ public class PlantaController {
     public Planta guardarplanta(@RequestBody Planta plant) {
         return this.plantaService.guardar(plant);
     }
+    
+    @PutMapping()
+    public Planta actualizarPlanta(@RequestBody Planta plant) {
+    	return this.plantaService.guardar(plant);
+    }
 
     @DeleteMapping(path ="/{id}")
     public String eliminarplanta(@PathVariable("id") Long id){
